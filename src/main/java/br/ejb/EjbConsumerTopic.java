@@ -12,16 +12,16 @@ import javax.jms.TextMessage;
  */
 @MessageDriven(activationConfig = {
     @ActivationConfigProperty(propertyName = "destinationLookup",
-            propertyValue = "java/Fila"),
+            propertyValue = "java/Topic"),
     @ActivationConfigProperty(propertyName = "destinationType",
-            propertyValue = "javax.jms.Queue")
+            propertyValue = "javax.jms.Topic")
 })
-public class EjbConsumerQueue implements MessageListener {
+public class EjbConsumerTopic implements MessageListener {
 
     @Override
     public void onMessage(Message msg) {
         //throw new UnsupportedOperationException("Not supported yet."); 
-        System.out.println("QUEUE - Message received by " + this.getClass().getSimpleName());
+        System.out.println("TOPIC - Message received by " + this.getClass().getSimpleName());
         try {
             TextMessage textMessage = (TextMessage) msg;
             System.out.println(textMessage.getText());

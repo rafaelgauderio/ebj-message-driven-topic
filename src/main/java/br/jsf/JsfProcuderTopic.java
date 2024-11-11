@@ -5,26 +5,26 @@ import javax.inject.Named;
 import javax.enterprise.context.RequestScoped;
 import javax.jms.ConnectionFactory;
 import javax.jms.JMSContext;
-import javax.jms.Queue;
+import javax.jms.Topic;
 import lombok.Getter;
 import lombok.Setter;
 
 /**
  *
- * @author Rafael de Luca
+ * @author rafael
  */
-@Named(value = "jsfProcuderQueue")
+@Named(value = "jsfProcuderTopic")
 @RequestScoped
-public class JsfProcuderQueue {
+public class JsfProcuderTopic {
 
-    public JsfProcuderQueue() {
+    public JsfProcuderTopic() {
     }
 
     @Resource(lookup = "java:comp/DefaultJMSConnectionFactory")
     private ConnectionFactory connectionFactory;
 
-    @Resource(lookup = "java/Fila")
-    private Queue queue;
+    @Resource(lookup = "java/Topic")
+    private Topic topic;
 
     @Getter
     @Setter
@@ -38,7 +38,7 @@ public class JsfProcuderQueue {
         try {
             JMSContext jmsContext = connectionFactory.createContext();
             for (int i = 0; i<= quantity; i++) {
-                jmsContext.createProducer().send(queue, message + " with id number " + i);
+                jmsContext.createProducer().send(topic, message + " with id number " + i);
             }
         } catch (Exception exp) {
             System.out.println("Error");

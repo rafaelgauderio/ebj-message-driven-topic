@@ -8,11 +8,18 @@
     <h:body>
         Testing message driven beans with Queue and Topic
         <h:form>
-            <h2>Using QUEUE</h2>
+            <h3>Using QUEUE - First In First Out - use the first consumer avaliable</h3>
             Enter Message:
             <h:inputText value="#{jsfProcuderQueue.message}"></h:inputText> <br />
             How many times:  <h:inputText value="#{jsfProcuderQueue.quantity}"></h:inputText> <br />
             <h:commandButton value="Send message" action="#{jsfProcuderQueue.send()}"></h:commandButton>
+        </h:form>
+           <h:form>
+            <h3>Using TOPIC - Recplica (duplicate, triplicate) the messages, dependig of the numbers of consumers</h3>
+            Enter Message:
+            <h:inputText value="#{jsfProcuderTopic.message}"></h:inputText> <br />
+            How many times:  <h:inputText value="#{jsfProcuderTopic.quantity}"></h:inputText> <br />
+            <h:commandButton value="Send message" action="#{jsfProcuderTopic.send()}"></h:commandButton>
         </h:form>
     </h:body>
 </html>

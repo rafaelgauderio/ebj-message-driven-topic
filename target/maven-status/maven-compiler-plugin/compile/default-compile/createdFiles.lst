@@ -1,6 +1,9 @@
 br\jsf\JsfProcuderQueue.class
 br\ejb\EjbConsumerQueueAlternative.class
+br\jsf\JsfProcuderTopic.class
+br\ejb\EjbConsumerQueueThird.class
+br\ejb\EjbConsumerTopic.class
 br\resources\JavaEE8Resource.class
+br\ejb\EjbConsumerTopicAlternative.class
 br\JAXRSConfiguration.class
-.netbeans_automatic_build
 br\ejb\EjbConsumerQueue.class

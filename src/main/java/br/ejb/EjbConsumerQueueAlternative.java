@@ -21,7 +21,7 @@ public class EjbConsumerQueueAlternative implements MessageListener {
     @Override
     public void onMessage(Message msg) {
         //throw new UnsupportedOperationException("Not supported yet."); 
-        System.out.println("Message received by " + this.getClass().getSimpleName());
+        System.out.println("QUEUE - Message received by " + this.getClass().getSimpleName());
         try {
             TextMessage textMessage = (TextMessage) msg;
             System.out.println(textMessage.getText());
